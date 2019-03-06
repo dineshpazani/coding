@@ -1,20 +1,14 @@
 #single linkedlist
 class Node:
-
     def __init__(self, data):
-
         self.data = data
         self.nextnode = None
 
 class LinkedList:
-
     def __init__(self):
-
         self.head = None
 
-
     def insert(self, data):
-
         if self.head is None:
             self.head = Node(data)
         else:
@@ -24,15 +18,12 @@ class LinkedList:
             node.nextnode = Node(data)
 
     def printList(self):
-
         node = self.head
-
         while node is not None:
             print(node.data)
             node = node.nextnode
 
     def insertat(self, data, at):
-
         node = self.head
         i = 0
         temp = Node(data)
@@ -45,7 +36,6 @@ class LinkedList:
             node = node.nextnode
 
     def remove(self, data):
-
         node = self.head
         pri = None
         while node.data != data:
