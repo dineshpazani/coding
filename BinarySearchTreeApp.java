@@ -7,6 +7,7 @@ public class BinarySearchTreeApp {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(80);
 		bst.add(40);
+		bst.add(10);
 		bst.add(70);
 		bst.add(30);
 		bst.add(20);
@@ -47,15 +48,17 @@ class BinarySearchTree {
 		Node tempNode = rootNode;
 		
 		if (tempNode.data > data) {
-			while(tempNode.leftNode != null) {
-				tempNode = tempNode.leftNode;
+			if(tempNode.leftNode != null) {
+				generateNode(tempNode.leftNode, data);	
+			}else {
+				tempNode.leftNode = new Node(data);
 			}
-			tempNode.leftNode = new Node(data);
 		} else {
-			while(tempNode.rightNode != null) {
-				tempNode = tempNode.rightNode;
+			if(tempNode.rightNode != null) {
+				generateNode(tempNode.rightNode, data);	
+			}else {
+				tempNode.rightNode = new Node(data);
 			}
-			tempNode.rightNode = new Node(data);
 		}
 
 	}
@@ -70,7 +73,7 @@ class BinarySearchTree {
 		
 		if(rootNode == null)
 			return;
-		
+			
 		treeTraverse(rootNode.leftNode);
 		System.out.println(rootNode.data);
 		treeTraverse(rootNode.rightNode);
