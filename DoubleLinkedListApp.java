@@ -1,4 +1,5 @@
 package com.algorithms;
+
 //https://java2blog.com/doubly-linked-list-java/
 
 public class DoubleLinkedListApp {
@@ -7,11 +8,17 @@ public class DoubleLinkedListApp {
 		
 		DoubleLinkedList dll = new DoubleLinkedList();
 		
-		dll.add(10);
-		dll.add(20);
-		dll.add(30);
-		dll.add(40);
-		dll.add(50);
+		dll.addAtLast(10);
+		dll.addAtLast(20);
+		dll.addAtLast(30);
+		dll.addAtLast(40);
+		dll.addAtLast(50);
+		
+		dll.addFirst(60);
+		dll.addFirst(70);
+		dll.addFirst(80);
+		dll.addFirst(90);
+		dll.addFirst(100);
 		
 		dll.printForward();
 		dll.printBackward();
@@ -37,7 +44,20 @@ class DoubleLinkedList{
 	NodeDl headNode;
 	NodeDl tailNode;
 	
-	public void add(int data) {
+	public void addFirst(int data) {
+		NodeDl nodeDl = new NodeDl(data);
+		
+		nodeDl.data = data;
+		nodeDl.nNode = headNode;
+		nodeDl.pNode=null;
+		if(headNode !=null)
+			headNode.pNode=nodeDl;
+		headNode = nodeDl;
+		if(tailNode ==null)
+			tailNode =nodeDl;
+	}
+	
+	public void addAtLast(int data) {
 		
 		NodeDl nodeDl = new NodeDl(data);
 		
